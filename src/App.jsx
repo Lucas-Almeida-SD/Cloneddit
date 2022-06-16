@@ -1,10 +1,13 @@
-import './App.css';
+import { Provider } from "./context/myContext";
+
 
 function App() {
   return (
-    <div className="App">
+    <Provider>
+      <div className="App">
+      </div>
+    </Provider>
       
-    </div>
   );
 }
 
