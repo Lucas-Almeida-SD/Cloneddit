@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { createContext } from "react";
 
-const MyContext = createContext();
+export const MyContext = createContext();
 
 export function Provider({ children }) {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState();
   const [isFetching, setIsFetching] = useState(true);
 
   const providerValues = {
