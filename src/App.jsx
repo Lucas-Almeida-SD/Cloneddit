@@ -1,11 +1,16 @@
-import { Provider } from "./context/myContext";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Provider } from "./context/Provider";
+import { Home } from "./pages/Home";
 
 
 function App() {
   return (
     <Provider>
-      <div className="App">
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" component={ Home } />
+        </Switch>
+      </BrowserRouter>
     </Provider>
       
   );

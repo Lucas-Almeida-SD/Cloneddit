@@ -17,11 +17,10 @@ export function useAllPosts() {
         const parsedPosts = Object.values(databasePosts);
 
         setAllPosts(parsedPosts);
+        setIsFetching(false);
       });
     }
     getAllPosts();
-
-    setIsFetching(false);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
