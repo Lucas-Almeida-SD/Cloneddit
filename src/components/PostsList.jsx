@@ -1,7 +1,17 @@
 import React from "react";
 import { User } from "./User";
 
+import commentsImg from '../assets/images/comment.svg';
+import { useState } from "react";
+import { Comments } from "./Comments";
+import { useContext } from "react";
+import { MyContext } from "../context/Provider";
+
 export function PostsLists({ allPosts }) {
+  const { user } = useContext(MyContext);
+  const [showComment, setShowComment] = useState(false);
+  const [commentIndex, setCommentIndex] = useState(-1);
+
   const sortByDate = (array) => {
     return (array.sort((next, prev) => {
       if (next.postedAt.valueOf() > prev.postedAt.valueOf()) return -1;
@@ -9,6 +19,19 @@ export function PostsLists({ allPosts }) {
       return 0;
     }));
   };
+
+  const getComments = (commentsObject) => {
+    if (commentsObject) {
+      const entries = Object.entries(commentsObject);
+      const array = entries.map((comment) => ({
+        commentId: comment[0],
+        content: comment[1].content,
+        author: comment[1].author,
+      }));
+      return array;
+    } 
+    return [];
+  }
 
   const putAllPostsInsideASingleArray = () => {
     if(allPosts[0] && !allPosts[0].posts) return [];
@@ -19,7 +42,8 @@ export function PostsLists({ allPosts }) {
       const newArrayPost = getPostsInfo.map((postInfo) => ({
         user: authorInfo[0],
         postId: postInfo[0],
-        ...postInfo[1]
+        ...postInfo[1],
+        comments: getComments(postInfo[1].comments),
       }));
       return newArrayPost
     });
@@ -33,16 +57,38 @@ export function PostsLists({ allPosts }) {
     return (`${newDate[1]} - ${newDate[0]}`)
   }
 
+  const enableComments = (index) => {
+    setShowComment(true);
+    setCommentIndex(index);
+  }
+
   return (
     <section>
-      {putAllPostsInsideASingleArray().map((post) => (
+      {putAllPostsInsideASingleArray().map((post, index) => (
         <div key={ post.postId }>
           <span>{formatDate(post.postedAt)}</span>
           <h2>{post.title}</h2>
           <p>{post.content}</p>
           <footer>
             <User user={ post.user } />
+            <div>
+              <button
+                type="button"
+                onClick={ () => enableComments(index) }
+                disabled={ !user }
+              >
+                <span>{post.comments.length}</span>
+                <img src={ commentsImg } alt="Comentário" title="Comentários"/>
+              </button>
+            </div>
           </footer>
+          {(showComment && commentIndex === index) && (
+            <Comments
+              post={post} 
+              setShowComment={ setShowComment }
+              setCommentIndex={ setCommentIndex }
+            />
+          )}
         </div>
       ))}
     </section>

@@ -1,8 +1,8 @@
+import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { MyContext } from "../context/Provider";
 import { database } from "../services/firebase";
-import { User } from "./User";
 
 export function NewPost() {
   const { user } = useContext(MyContext);
@@ -40,7 +40,7 @@ export function NewPost() {
         onChange={ ({ target }) => setTextareaValue(target.value) }
       />
       <footer>
-        {(!user) ? <span>Faça login para interagir!</span> : <User user={ user } />}
+        {(!user) && <span>Faça login para interagir!</span>}
         <button
           type="submit"
           disabled={ !user || !inputValue || !textareaValue }
