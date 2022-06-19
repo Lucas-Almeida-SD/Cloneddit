@@ -41,7 +41,12 @@ export function NewPost() {
       />
       <footer>
         {(!user) ? <span>Faça login para interagir!</span> : <User user={ user } />}
-        <button type="submit" disabled={ !user }>Enviar</button>
+        <button
+          type="submit"
+          disabled={ !user || !inputValue || !textareaValue }
+        >
+          Enviar
+        </button>
       </footer>
     </form>
   );

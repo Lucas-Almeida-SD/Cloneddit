@@ -2,8 +2,15 @@ import React from "react";
 import { User } from "./User";
 
 export function PostsLists({ allPosts }) {
+  const sortByDate = (array) => {
+    return (array.sort((next, prev) => {
+      if (next.postedAt.valueOf() > prev.postedAt.valueOf()) return -1;
+      if (next.postedAt.valueOf() < prev.postedAt.valueOf()) return 1;
+      return 0;
+    }));
+  };
+
   const putAllPostsInsideASingleArray = () => {
-    console.log(allPosts);
     if(allPosts[0] && !allPosts[0].posts) return [];
     const organizeAllPosts = allPosts.map((person) => {
       const getPosts = Object.entries(person);
@@ -18,13 +25,19 @@ export function PostsLists({ allPosts }) {
     });
     const removePostsFromArray = [];
     organizeAllPosts.forEach((array) => { removePostsFromArray.push(...array) });
-    return removePostsFromArray;
+    return sortByDate(removePostsFromArray);
+  };
+
+  const formatDate = (date) => {
+    const newDate = date.split(' ');
+    return (`${newDate[1]} - ${newDate[0]}`)
   }
 
   return (
     <section>
       {putAllPostsInsideASingleArray().map((post) => (
         <div key={ post.postId }>
+          <span>{formatDate(post.postedAt)}</span>
           <h2>{post.title}</h2>
           <p>{post.content}</p>
           <footer>

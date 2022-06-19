@@ -9,7 +9,7 @@ export function useAllPosts() {
   useEffect(() => {
     setIsFetching(true);
     const getAllPosts = async() => {
-      const allPostsRef = await database.ref('/allPosts');
+      const allPostsRef = database.ref('/allPosts');
   
       allPostsRef.on('value', posts => {
         const databasePosts = posts.val() ?? {};

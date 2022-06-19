@@ -13,7 +13,7 @@ export function Home() {
     <>
       <Header />
       <main>
-        {(!isFetching) ? (
+        {(!isFetching && allPosts) ? (
           <>
           <section>
             <NewPost />
