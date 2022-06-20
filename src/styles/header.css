@@ -53,16 +53,25 @@ header .options {
 
 header .options .login {
   height: 28px;
-  padding: 0 24px;
+  padding: 0 38px;
   cursor: pointer;
   border: 0;
   border-radius: 4px;
   background: #219ebc;
   color: #fff;
+  position: relative;
 }
 
 header .options .login:hover {
   filter: brightness(0.8);
+}
+
+header .options .login img{
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 4px;
+  left: 8px;
 }
 
 header .options a {

@@ -6,6 +6,7 @@ import { firebase, auth } from '../services/firebase';
 import { Link, useHistory } from "react-router-dom";
 
 import robotImg from '../assets/images/robot.png';
+import googleImg from '../assets/images/google-icon.svg';
 import '../styles/header.css';
 
 export function Header(props) {
@@ -45,6 +46,7 @@ export function Header(props) {
       <div className="options">
         {(!user) ? (
           <button className="login" onClick={ signInWithGoogle }>
+            <img src={ googleImg } alt="Logo Google" />
             Login
           </button>
         ) : (
