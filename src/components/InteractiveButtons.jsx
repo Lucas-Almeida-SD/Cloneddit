@@ -23,8 +23,10 @@ export function InteractiveButtons({ post, index, enableComments }) {
   };
 
   const deletePost = async () => {
-    await database.ref(`allPosts/${post.author.id}/posts/${post.postId}`).remove();
-  }
+    if (window.confirm('Deseja remover essa postagem?')) {
+      await database.ref(`allPosts/${post.author.id}/posts/${post.postId}`).remove();
+    }
+  };
 
   return (
     <div className="interactive-buttons">
