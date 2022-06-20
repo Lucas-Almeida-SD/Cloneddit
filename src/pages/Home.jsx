@@ -17,7 +17,7 @@ export function Home() {
       <main id="home">
         {(!isFetching && allPosts) ? (
           <>
-          <section>
+          <section className="content">
             <NewPost />
             <PostsLists allPosts={allPosts}/>
           </section>

@@ -5,6 +5,8 @@ import { PostsLists } from "../components/PostsList";
 import { MyContext } from "../context/Provider";
 import { useMyPosts } from "../hooks/useMyPosts";
 
+import '../styles/myPosts.css';
+
 export function MyPosts() {
   const { isFetching } = useContext(MyContext);
   const { myPosts } = useMyPosts();
@@ -12,7 +14,7 @@ export function MyPosts() {
   return (
     <>
       <Header />
-      <main>
+      <main id="my-posts">
         {(!isFetching && myPosts) ? (
           <PostsLists allPosts={ myPosts }/>
         ) : <h1>Loading...</h1>}

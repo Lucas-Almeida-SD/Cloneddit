@@ -47,7 +47,7 @@
 }
 
 .comments-section .post {
-  width: 95%;
+  width: 95% !important;
 }
 
 .comments-section .post button:nth-child(1) {
