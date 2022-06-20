@@ -30,7 +30,6 @@
 }
 
 .comments-content {
-  display: flex;
   width: 80%;
   height: 85vh;
   border: 1px solid #727272;
@@ -43,6 +42,7 @@
 .comments-section {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 24px;
 }
 
