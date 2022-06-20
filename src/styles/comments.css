@@ -1,0 +1,125 @@
+.comments-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(0, 0, 0, 0.7);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.return {
+  text-align: end;
+  margin-bottom: 8px;
+  width: 100%;
+  width: 80%;
+}
+
+.return button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.return button:hover {
+  filter: brightness(0.8);
+}
+
+.comments-content {
+  display: flex;
+  width: 80%;
+  height: 85vh;
+  border: 1px solid #727272;
+  border-radius: 4px;
+  background: rgb(26, 27, 28);
+  padding: 12px;
+  overflow-y: auto;
+}
+
+.comments-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.comments-section .post {
+  width: 95%;
+}
+
+.comments-section .post button:nth-child(1) {
+  cursor: default;
+}
+
+.comments-section .post button:nth-child(1):enabled:hover {
+  cursor: default;
+  background: none;
+}
+
+.comments-section form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  width: 95%;
+  border: 1px solid #727272;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.comments-section form textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 150px;
+  font-size: 18px;
+  border-radius: 2px;
+  border: 1px solid var(--cinza1);
+  background: var(--cinza2);
+  outline: none;
+  padding: 4px;
+  color: #fff;
+}
+
+.comments-section form textarea:hover,.comments-section form textarea:focus {
+  border-color: #219ebc;
+}
+
+.comments-section form button {
+  padding: 8px 38px;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  cursor: not-allowed;
+  color: #999;
+}
+
+.comments-section form button:enabled {
+  background: #219ebc;
+  cursor: pointer;
+  color: #fff;
+}
+
+.comments-section form button:enabled:hover {
+  filter: brightness(0.8);
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  gap: 12px;
+  padding-bottom: 12px;
+}
+
+.comments-list .comment {
+  border: 1px solid #727272;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.comments-list .comment p {
+  word-wrap: break-word;
+}

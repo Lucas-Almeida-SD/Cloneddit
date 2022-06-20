@@ -70,29 +70,39 @@ export function PostsLists({ allPosts }) {
     setCommentIndex(index);
   };
 
+  const renderPost = (post, index) => {
+    return (
+      <>
+        <span className="posted-at">{`Postado às ${formatDate(post.postedAt)}`}</span>
+        <h2 className="title">{post.title}</h2>
+        <p className="content">{post.content}</p>
+        <footer>
+          <User user={ post.author } />
+          <InteractiveButtons
+            post={ post }
+            index={ index }
+            enableComments={ enableComments }
+          />
+        </footer>
+      </>
+    );
+  };
+
   console.log(putAllPostsInsideASingleArray());
 
   return (
     <section className="posts-list">
       {putAllPostsInsideASingleArray().map((post, index) => (
         <div key={ post.postId } className="post">
-          <span className="posted-at">{`Postado às ${formatDate(post.postedAt)}`}</span>
-          <h2 className="title">{post.title}</h2>
-          <p className="content">{post.content}</p>
-          <footer>
-            <User user={ post.author } />
-            <InteractiveButtons
-              post={ post }
-              index={ index }
-              enableComments={ enableComments }
-            />
-          </footer>
+          {renderPost(post, index)}
           {(showComment && commentIndex === index) && (
             <Comments
               post={post} 
               setShowComment={ setShowComment }
               setCommentIndex={ setCommentIndex }
-            />
+            >
+              {renderPost(post, index)}
+            </Comments>
           )}
         </div>
       ))}
