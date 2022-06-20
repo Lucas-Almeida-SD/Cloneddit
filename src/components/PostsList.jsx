@@ -7,6 +7,8 @@ import { Comments } from "./Comments";
 import { useContext } from "react";
 import { MyContext } from "../context/Provider";
 
+import '../styles/postsList.css';
+
 export function PostsLists({ allPosts }) {
   const { user } = useContext(MyContext);
   const [showComment, setShowComment] = useState(false);
@@ -63,15 +65,15 @@ export function PostsLists({ allPosts }) {
   }
 
   return (
-    <section>
+    <section className="posts-list">
       {putAllPostsInsideASingleArray().map((post, index) => (
-        <div key={ post.postId }>
-          <span>{formatDate(post.postedAt)}</span>
-          <h2>{post.title}</h2>
-          <p>{post.content}</p>
+        <div key={ post.postId } className="post">
+          <span className="posted-at">{`Postado às ${formatDate(post.postedAt)}`}</span>
+          <h2 className="title">{post.title}</h2>
+          <p className="content">{post.content}</p>
           <footer>
             <User user={ post.user } />
-            <div>
+            <div className="interactive-buttons">
               <button
                 type="button"
                 onClick={ () => enableComments(index) }

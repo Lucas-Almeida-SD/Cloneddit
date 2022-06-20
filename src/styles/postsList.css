@@ -1,0 +1,56 @@
+:root {
+  --cinza1: rgb(62, 66, 75);
+  --cinza2: rgb(40, 42, 47);
+  }
+
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.posts-list .post {
+  width: 80%;
+  border: 1px solid #727272;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.posts-list .post .posted-at {
+  display: block;
+  text-align: end;
+  font-size: 14px;
+}
+
+.posts-list .post .title, .posts-list .post .content {
+  margin-top: 4px;
+}
+
+.posts-list .post footer {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.posts-list .post .interactive-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.posts-list .post .interactive-buttons button {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 2px;
+}
+
+.posts-list .post .interactive-buttons button:hover {
+  background: var(--cinza2);
+}
