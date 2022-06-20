@@ -46,11 +46,16 @@
   color: #fff;
   background: transparent;
   border: 0;
-  cursor: pointer;
+  cursor: not-allowed;
   border-radius: 2px;
   padding: 2px;
 }
 
-.posts-list .post .interactive-buttons button:hover {
+.posts-list .post .interactive-buttons button:enabled:hover {
   background: var(--cinza2);
+  cursor: pointer;
+}
+
+.posts-list .post .interactive-buttons .liked path {
+  stroke: #219ebc;
 }
