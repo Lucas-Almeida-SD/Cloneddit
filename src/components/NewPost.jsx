@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { MyContext } from "../context/Provider";
 import { database } from "../services/firebase";
 
+import '../styles/newPost.css';
+
 export function NewPost() {
   const { user } = useContext(MyContext);
   const [inputValue, setInputValue] = useState('');
@@ -27,19 +29,21 @@ export function NewPost() {
   }
 
   return (
-    <form onSubmit={ handleSubmit }>
+    <form className="new-post-form" onSubmit={ handleSubmit }>
       <input
         type="text" 
         placeholder="Título do post" 
         value={ inputValue }
         onChange={ ({ target }) => setInputValue(target.value) }
+        disabled={ !user }
       />
       <textarea
         placeholder="Insira o seu texto"
         value={ textareaValue }
         onChange={ ({ target }) => setTextareaValue(target.value) }
+        disabled={ !user }
       />
-      <footer>
+      <footer className={(user) && 'footer-logged'}>
         {(!user) && <span>Faça login para interagir!</span>}
         <button
           type="submit"

@@ -6,13 +6,15 @@ import { PostsLists } from "../components/PostsList";
 import { MyContext } from "../context/Provider";
 import { useAllPosts } from "../hooks/useAllPosts";
 
+import '../styles/home.css';
+
 export function Home() {
   const { isFetching } = useContext(MyContext);
   const { allPosts } = useAllPosts();
   return (
     <>
       <Header />
-      <main>
+      <main id="home">
         {(!isFetching && allPosts) ? (
           <>
           <section>
