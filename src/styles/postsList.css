@@ -24,6 +24,7 @@
 
 .posts-list .post .title, .posts-list .post .content {
   margin-top: 4px;
+  text-align: justify;
 }
 
 .posts-list .post footer {
