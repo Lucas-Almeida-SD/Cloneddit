@@ -1,0 +1,75 @@
+:root {
+  --cinza1: rgb(62, 66, 75);
+  --cinza2: rgb(40, 42, 47);
+  } 
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  gap: 12px;
+  border-bottom: 1px solid var(--cinza2);
+}
+
+header .logo {
+  gap: 8px;
+  display: flex;
+  align-items: center;
+}
+
+header .logo img {
+  width: 50px;
+  background: #219ebc;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+header .logo h1 {
+  font-size: 24px;
+}
+
+header input {
+  width: 40%;
+  height: 28px;
+  font-size: 18px;
+  padding: 0 4px;
+  border-radius: 4px;
+  border: 1px solid var(--cinza1);
+  background: var(--cinza2);
+  outline: none;
+  color: #fff;
+}
+
+header input:focus, header input:hover {
+  border-color: #219ebc;
+}
+
+header .options {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+header .options .login {
+  height: 28px;
+  padding: 0 24px;
+  cursor: pointer;
+  border: 0;
+  border-radius: 4px;
+  background: #219ebc;
+  color: #fff;
+}
+
+header .options .login:hover {
+  filter: brightness(0.8);
+}
+
+header .options a {
+  color: #219ebc;
+  text-decoration: none;
+}
+
+header .options a:hover {
+  text-shadow: 0 0 8px #219ebc;
+}

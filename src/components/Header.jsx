@@ -5,6 +5,9 @@ import { User } from "./User";
 import { firebase, auth } from '../services/firebase';
 import { Link, useHistory } from "react-router-dom";
 
+import robotImg from '../assets/images/robot.png';
+import '../styles/header.css';
+
 export function Header(props) {
   const { user, setUser } = useContext(MyContext);
   const history = useHistory();
@@ -34,20 +37,23 @@ export function Header(props) {
 
   return (
     <header>
-      <h1>Cloneddit</h1>
-      <form>
-        <input type="text" placeholder="Buscar no Cloneddit" />
-      </form>
-      {(!user) ? (
-        <button onClick={ signInWithGoogle }>
-          Login
-        </button>
-      ) : (
-        <>
-          {renderPageLink()}
-          <User user={user} />
-        </>
-      )}
+      <div className="logo">
+        <img src={ robotImg } alt="Robô" />
+        <h1>cloneddit</h1>
+      </div>
+      <input type="text" placeholder="Buscar no Cloneddit" />
+      <div className="options">
+        {(!user) ? (
+          <button className="login" onClick={ signInWithGoogle }>
+            Login
+          </button>
+        ) : (
+          <>
+            {renderPageLink()}
+            <User user={user} />
+          </>
+        )}
+      </div>
     </header>
   );
 }
