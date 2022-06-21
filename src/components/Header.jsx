@@ -1,5 +1,4 @@
-import React from "react";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { MyContext } from "../context/Provider";
 import { User } from "./User";
 import { firebase, auth } from '../services/firebase';
@@ -10,7 +9,7 @@ import googleImg from '../assets/images/google-icon.svg';
 import '../styles/header.css';
 
 export function Header(props) {
-  const { user, setUser } = useContext(MyContext);
+  const { user, setUser, filterByTitle, setFilterByTitle } = useContext(MyContext);
   const history = useHistory();
   const { location: { pathname } } = history;
 
@@ -42,7 +41,12 @@ export function Header(props) {
         <img src={ robotImg } alt="Robô" />
         <h1>cloneddit</h1>
       </div>
-      <input type="text" placeholder="Buscar no Cloneddit" />
+      <input
+        type="text"
+        placeholder="Buscar no Cloneddit"
+        value={ filterByTitle }
+        onChange={ ({ target }) => setFilterByTitle(target.value) }
+      />
       <div className="options">
         {(!user) ? (
           <button className="login" onClick={ signInWithGoogle }>

@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { User } from "./User";
 import { Comments } from "./Comments";
 
-import '../styles/postsList.css';
 import { InteractiveButtons } from "./InteractiveButtons";
+import { MyContext } from "../context/Provider";
+
+import '../styles/postsList.css';
 
 export function PostsLists({ allPosts }) {
+  const { filterByTitle } = useContext(MyContext);
   const [showComment, setShowComment] = useState(false);
   const [commentIndex, setCommentIndex] = useState(-1);
 
@@ -60,6 +63,11 @@ export function PostsLists({ allPosts }) {
     return sortByDate(removePostsFromArray);
   };
 
+  const filterPosts = () => (
+    putAllPostsInsideASingleArray().filter((post) => 
+      post.title.toLowerCase().includes(filterByTitle.toLowerCase()))
+  );
+
   const formatDate = (date) => {
     const newDate = date.split(' ');
     return (`${newDate[1]} - ${newDate[0]}`)
@@ -90,7 +98,7 @@ export function PostsLists({ allPosts }) {
 
   return (
     <section className="posts-list">
-      {putAllPostsInsideASingleArray().map((post, index) => (
+      {filterPosts().map((post, index) => (
         <div key={ post.postId } className="post">
           {renderPost(post, index)}
           {(showComment && commentIndex === index) && (
