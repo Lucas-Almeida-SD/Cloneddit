@@ -76,7 +76,7 @@ export function PostsLists({ allPosts }) {
         <span className="posted-at">{`Postado às ${formatDate(post.postedAt)}`}</span>
         <h2 className="title">{post.title}</h2>
         <p className="content">{post.content}</p>
-        <footer>
+        <footer className="post-footer">
           <User user={ post.author } />
           <InteractiveButtons
             post={ post }
@@ -87,8 +87,6 @@ export function PostsLists({ allPosts }) {
       </>
     );
   };
-
-  console.log(putAllPostsInsideASingleArray());
 
   return (
     <section className="posts-list">

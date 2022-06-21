@@ -51,12 +51,12 @@
 }
 
 .comments-section .post button:nth-child(1) {
-  cursor: default;
+  cursor: default !important;
 }
 
 .comments-section .post button:nth-child(1):enabled:hover {
-  cursor: default;
-  background: none;
+  cursor: default !important;
+  background: none !important;
 }
 
 .comments-section form {
@@ -122,4 +122,23 @@
 
 .comments-list .comment p {
   word-wrap: break-word;
+}
+
+.comments-list .comment footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.comments-list .comment footer button {
+  background: transparent;
+  border: 0;
+  border-radius: 2px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.comments-list .comment footer button:hover {
+  background: var(--cinza2);
 }

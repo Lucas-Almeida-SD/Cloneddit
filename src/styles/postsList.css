@@ -28,7 +28,7 @@
   text-align: justify;
 }
 
-.posts-list .post footer {
+.posts-list .post .post-footer {
   margin-top: 12px;
   display: flex;
   justify-content: space-between;
@@ -48,15 +48,19 @@
   color: #fff;
   background: transparent;
   border: 0;
-  cursor: not-allowed;
   border-radius: 2px;
   padding: 2px;
+}
+
+.posts-list .post .interactive-buttons button:disabled {
+  cursor: not-allowed;
 }
 
 .posts-list .post .interactive-buttons button:enabled:hover {
   background: var(--cinza2);
   cursor: pointer;
 }
+
 
 .posts-list .post .interactive-buttons .liked path {
   stroke: #219ebc;

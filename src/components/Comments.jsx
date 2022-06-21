@@ -7,6 +7,8 @@ import { database } from "../services/firebase";
 import { useContext } from "react";
 import { MyContext } from "../context/Provider";
 
+import deleteImg from '../assets/images/delete.svg';
+
 import '../styles/comments.css';
 
 export function Comments({ post, setShowComment, setCommentIndex, children }) {
@@ -26,18 +28,12 @@ export function Comments({ post, setShowComment, setCommentIndex, children }) {
     setTextAreaValue('');
   }
 
-  const commentsList = () => {
-    if (post.comments) {
-      const entries = Object.entries(post.comments);
-      const newArray = entries.map((comment) => ({
-        commentId: comment[0],
-        content: comment[1].content,
-        author: comment[1].author,
-      }));
-      return newArray;
+  const deleteComment = async (comment) => {
+    if (window.confirm('Deseja remover esse comentário?')) {
+      await database.ref(`allPosts/${post.author.id}/posts/${post.postId}/comments/${comment.commentId}`)
+        .remove();
     }
-    return [];
-  }
+  };
 
   return (
     <div className="comments-background">
@@ -60,11 +56,20 @@ export function Comments({ post, setShowComment, setCommentIndex, children }) {
             <button type="submit" disabled={ !textareaValue }>Comentar</button>
           </form>
           <div className="comments-list">
-            {commentsList().map((comment) => (
+            {post.comments.map((comment) => (
               <div key={ comment.commentId } className="comment">
                 <p>{comment.content}</p>
                 <footer>
                   <User user={comment.author}/>
+                  {(user && (user.id === comment.author.id || user.id === post.author.id)) && (
+                    <button
+                      type="button"
+                      onClick={ () => deleteComment(comment) }
+                      aria-label="Remover comentário"
+                    >
+                      <img src={ deleteImg } alt="Remover" title="Remover"/>
+                    </button>
+                  )}
                 </footer>
               </div>
             ))}
