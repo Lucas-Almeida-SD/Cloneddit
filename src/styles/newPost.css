@@ -18,6 +18,24 @@
   border-radius: 4px;
 }
 
+.new-post-form .return {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.new-post-form .return button {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  cursor: pointer;
+}
+
+.new-post-form .return button:hover {
+  filter: brightness(0.8);
+}
+
 .new-post-form input, .new-post-form textarea {
   font-size: 18px;
   border-radius: 2px;
@@ -77,10 +95,6 @@
 .new-post-form footer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-.new-post-form .footer-logged {
   justify-content: flex-end;
 }
 

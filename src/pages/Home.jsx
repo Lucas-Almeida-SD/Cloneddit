@@ -7,10 +7,20 @@ import { MyContext } from "../context/Provider";
 import '../styles/home.css';
 
 export function Home() {
-  const { allPosts, isFetching, setFilterByTitle } = useContext(MyContext);
+  const {
+    user, 
+    allPosts,
+    isFetching,
+    setFilterByTitle,
+    createNewPost,
+    setCreateNewPost,
+  } = useContext(MyContext);
 
   useEffect(() => {
-    return setFilterByTitle('');
+    return () => {
+      setFilterByTitle('');
+      setCreateNewPost(false);
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
@@ -19,12 +29,11 @@ export function Home() {
       <Header />
       <main id="home">
         {(!isFetching && allPosts) ? (
-          <>
           <section className="content">
-            <NewPost />
+            {!user && <p>Faça login</p>}
+            {(createNewPost) && <NewPost />}
             <PostsLists allPosts={allPosts}/>
           </section>
-          </>
         ) : <h1>Loading...</h1>}
       </main>
     </>

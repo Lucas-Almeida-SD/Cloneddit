@@ -12,20 +12,20 @@
   align-items: center;
 }
 
-.return {
+.comments-background .return {
   text-align: end;
   margin-bottom: 8px;
   width: 100%;
   width: 80%;
 }
 
-.return button {
+.comments-background .return button {
   background: transparent;
   border: 0;
   cursor: pointer;
 }
 
-.return button:hover {
+.comments-background .return button:hover {
   filter: brightness(0.8);
 }
 

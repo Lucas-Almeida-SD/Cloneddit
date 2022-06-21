@@ -4,12 +4,14 @@ import { useContext } from "react";
 import { MyContext } from "../context/Provider";
 import { database } from "../services/firebase";
 
+import returnImg from '../assets/images/return.svg';
 import imageImg from '../assets/images/image-icon.png';
+
 
 import '../styles/newPost.css';
 
 export function NewPost() {
-  const { user } = useContext(MyContext);
+  const { user, setCreateNewPost } = useContext(MyContext);
   const [inputValue, setInputValue] = useState('');
   const [textareaValue, setTextareaValue] = useState('');
   const [fileValue, setFileValue] = useState('');
@@ -49,6 +51,11 @@ export function NewPost() {
   return (
     <section className="new-post-section">
       <form className="new-post-form" onSubmit={ handleSubmit }>
+        <div className="return">
+          <button type="button" onClick={ () => setCreateNewPost(false) }>
+            <img src={ returnImg } alt="Retornar" />
+          </button>
+        </div>
         <input
           type="text" 
           placeholder="Título do post" 
@@ -63,9 +70,16 @@ export function NewPost() {
             onChange={ ({ target }) => setTextareaValue(target.value) }
             disabled={ !user }
           />
-          <div>
-            <img src={ imageImg } alt="Imagem" title="Imagem" onClick={ selectFile }/>
-          </div>
+          {(!fileValue) && (
+            <div>
+              <img
+                src={ imageImg }
+                alt="Imagem" 
+                title="Adicionar imagem"
+                onClick={ selectFile }
+              />
+            </div>
+          )}
         </div>
         <input
           type="file"
@@ -75,11 +89,12 @@ export function NewPost() {
           style={ { display: 'none' } }
           disabled={ !user }
         />
-        <div className="image-preview" style={ { display: (!fileValue) && 'none' } }>
-          <img src={ fileValue } alt="Pré-visualização da imagem" onClick={ removeImage }/>
-        </div>
-        <footer className={(user) && 'footer-logged'}>
-          {(!user) && <span>Faça login para interagir!</span>}
+        {(fileValue) && (
+          <div className="image-preview">
+            <img src={ fileValue } alt="Pré-visualização da imagem" onClick={ removeImage }/>
+          </div>
+        )}
+        <footer>
           <button
             type="submit"
             disabled={ !user || !inputValue.trim() || !textareaValue.trim() }

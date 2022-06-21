@@ -8,7 +8,8 @@ export function Provider({ children }) {
   const [user, setUser] = useState();
   const [isFetching, setIsFetching] = useState(true);
   const [filterByTitle, setFilterByTitle] = useState('');
-  const [posts, setAllPosts] = useState();
+  const [createNewPost, setCreateNewPost] = useState(false);
+  const [allPosts, setAllPosts] = useState();
 
   const getComments = (commentsObject) => {
     if (!commentsObject) return []
@@ -70,10 +71,11 @@ export function Provider({ children }) {
     user,
     setUser,
     isFetching,
-    setIsFetching,
     filterByTitle,
     setFilterByTitle,
-    allPosts: posts
+    allPosts,
+    createNewPost,
+    setCreateNewPost,
   }
 
   return (

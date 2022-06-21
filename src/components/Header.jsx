@@ -7,10 +7,18 @@ import { Link, useHistory } from "react-router-dom";
 import robotImg from '../assets/images/robot.png';
 import searchImg from '../assets/images/search.svg';
 import googleImg from '../assets/images/google-icon.svg';
+import addImg from '../assets/images/add.svg';
 import '../styles/header.css';
 
 export function Header(props) {
-  const { user, setUser, filterByTitle, setFilterByTitle } = useContext(MyContext);
+  const {
+    user,
+    setUser,
+    filterByTitle,
+    setFilterByTitle,
+    setCreateNewPost,
+  } = useContext(MyContext);
+
   const history = useHistory();
   const { location: { pathname } } = history;
 
@@ -33,6 +41,18 @@ export function Header(props) {
       (pathname === '/') ? (
         <Link to='/my-posts'>My Posts</Link>
       ) : <Link to='/'>Home</Link>
+    );
+  }
+
+  const renderNewPostBtn = () => {
+    return (
+      <button type="button" className="new-post" onClick={ () => setCreateNewPost(true) }>
+        <img
+          src={ addImg }
+          alt="Criar no post"
+          title="Novo post"
+        />
+      </button>
     );
   }
 
@@ -62,6 +82,7 @@ export function Header(props) {
         ) : (
           <>
             {renderPageLink()}
+            {renderNewPostBtn()}
             <User user={user} />
           </>
         )}

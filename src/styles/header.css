@@ -96,3 +96,23 @@ header .options a {
 header .options a:hover {
   text-shadow: 0 0 8px #219ebc;
 }
+
+header .options .new-post {
+  transition: 1s;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .options .new-post img {
+  width: 30px;
+}
+
+header .options .new-post:hover {
+  background: #219ebc;
+}
