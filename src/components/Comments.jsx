@@ -21,7 +21,7 @@ export function Comments({ post, setShowComment, setCommentIndex, children }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await database.ref(`allPosts/${post.author.id}/posts/${post.postId}/comments`).push({
+    await database.ref(`allPosts/${post.postId}/comments`).push({
       author: user,
       content: textareaValue,
     });
@@ -30,7 +30,7 @@ export function Comments({ post, setShowComment, setCommentIndex, children }) {
 
   const deleteComment = async (comment) => {
     if (window.confirm('Deseja remover esse comentário?')) {
-      await database.ref(`allPosts/${post.author.id}/posts/${post.postId}/comments/${comment.commentId}`)
+      await database.ref(`allPosts/${post.postId}/comments/${comment.commentId}`)
         .remove();
     }
   };

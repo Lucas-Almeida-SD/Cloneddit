@@ -2,25 +2,27 @@ import React, { useContext, useEffect } from "react";
 import { Header } from "../components/Header";
 import { PostsLists } from "../components/PostsList";
 import { MyContext } from "../context/Provider";
-import { useMyPosts } from "../hooks/useMyPosts";
 
 import '../styles/myPosts.css';
 
 export function MyPosts() {
-  const { isFetching, setFilterByTitle } = useContext(MyContext);
-  const { myPosts } = useMyPosts();
+  const { allPosts, user, isFetching, setFilterByTitle } = useContext(MyContext);
 
   useEffect(() => {
     return setFilterByTitle('');
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
+
+  const getMyPosts = () => {
+    return allPosts.filter((post) => post.author.id === user.id);
+  }
   
   return (
     <>
       <Header />
       <main id="my-posts">
-        {(!isFetching && myPosts) ? (
-          <PostsLists allPosts={ myPosts }/>
+        {(!isFetching && allPosts) ? (
+          <PostsLists allPosts={ getMyPosts() }/>
         ) : <h1>Loading...</h1>}
       </main>
     </>

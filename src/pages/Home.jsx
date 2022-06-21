@@ -3,13 +3,11 @@ import { Header } from "../components/Header";
 import { NewPost } from "../components/NewPost";
 import { PostsLists } from "../components/PostsList";
 import { MyContext } from "../context/Provider";
-import { useAllPosts } from "../hooks/useAllPosts";
 
 import '../styles/home.css';
 
 export function Home() {
-  const { isFetching, setFilterByTitle } = useContext(MyContext);
-  const { allPosts } = useAllPosts();
+  const { allPosts, isFetching, setFilterByTitle } = useContext(MyContext);
 
   useEffect(() => {
     return setFilterByTitle('');

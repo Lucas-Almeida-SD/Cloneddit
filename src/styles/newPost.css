@@ -3,6 +3,11 @@
   --cinza2: rgb(40, 42, 47);
   }
 
+.new-post-section {
+  display: flex;
+  justify-content: center;
+}
+
 .new-post-form {
   width: 60%;
   display: flex;

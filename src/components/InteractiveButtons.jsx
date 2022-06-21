@@ -14,17 +14,17 @@ export function InteractiveButtons({ post, index, enableComments }) {
 
   const likeThePost = async (post) => {
     if (findMyLike(post)) {
-      await database.ref(`allPosts/${post.author.id}/posts/${post.postId}/likes/${findMyLike(post).likeId}`)
+      await database.ref(`allPosts/${post.postId}/likes/${findMyLike(post).likeId}`)
         .remove();
     } else {
-      await database.ref(`allPosts/${post.author.id}/posts/${post.postId}/likes`)
+      await database.ref(`allPosts/${post.postId}/likes`)
         .push(user.id);
     }
   };
 
   const deletePost = async () => {
     if (window.confirm('Deseja remover essa postagem?')) {
-      await database.ref(`allPosts/${post.author.id}/posts/${post.postId}`).remove();
+      await database.ref(`allPosts/${post.postId}`).remove();
     }
   };
 

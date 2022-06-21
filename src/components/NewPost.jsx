@@ -13,12 +13,8 @@ export function NewPost() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const authorIdRef = database.ref(`allPosts/${user.id}`);
-    const getValueAuthorIdRef = await authorIdRef.get();
-    if (!getValueAuthorIdRef.exists()) {
-      await database.ref(`allPosts/${user.id}/author`).push(user);
-    }
-    await database.ref(`allPosts/${user.id}/posts`).push({
+    await database.ref(`allPosts`).push({
+      author: user,
       title: inputValue,
       content:textareaValue,
       postedAt: new Date().toLocaleString('pt-BR', { timeZone: "America/Sao_Paulo" }),
@@ -29,29 +25,31 @@ export function NewPost() {
   }
 
   return (
-    <form className="new-post-form" onSubmit={ handleSubmit }>
-      <input
-        type="text" 
-        placeholder="Título do post" 
-        value={ inputValue }
-        onChange={ ({ target }) => setInputValue(target.value) }
-        disabled={ !user }
-      />
-      <textarea
-        placeholder="Insira o seu texto"
-        value={ textareaValue }
-        onChange={ ({ target }) => setTextareaValue(target.value) }
-        disabled={ !user }
-      />
-      <footer className={(user) && 'footer-logged'}>
-        {(!user) && <span>Faça login para interagir!</span>}
-        <button
-          type="submit"
-          disabled={ !user || !inputValue || !textareaValue }
-        >
-          Enviar
-        </button>
-      </footer>
-    </form>
+    <section className="new-post-section">
+      <form className="new-post-form" onSubmit={ handleSubmit }>
+        <input
+          type="text" 
+          placeholder="Título do post" 
+          value={ inputValue }
+          onChange={ ({ target }) => setInputValue(target.value) }
+          disabled={ !user }
+        />
+        <textarea
+          placeholder="Insira o seu texto"
+          value={ textareaValue }
+          onChange={ ({ target }) => setTextareaValue(target.value) }
+          disabled={ !user }
+        />
+        <footer className={(user) && 'footer-logged'}>
+          {(!user) && <span>Faça login para interagir!</span>}
+          <button
+            type="submit"
+            disabled={ !user || !inputValue.trim() || !textareaValue.trim() }
+          >
+            Enviar
+          </button>
+        </footer>
+      </form>
+    </section>
   );
 }
