@@ -46,6 +46,7 @@ export function NewPost() {
 
     setInputValue('');
     setTextareaValue('');
+    setCreateNewPost('');
   }
 
   return (
