@@ -5,6 +5,7 @@ import { firebase, auth } from '../services/firebase';
 import { Link, useHistory } from "react-router-dom";
 
 import robotImg from '../assets/images/robot.png';
+import searchImg from '../assets/images/search.svg';
 import googleImg from '../assets/images/google-icon.svg';
 import '../styles/header.css';
 
@@ -41,12 +42,17 @@ export function Header(props) {
         <img src={ robotImg } alt="Robô" />
         <h1>cloneddit</h1>
       </div>
-      <input
-        type="text"
-        placeholder="Buscar no Cloneddit"
-        value={ filterByTitle }
-        onChange={ ({ target }) => setFilterByTitle(target.value) }
-      />
+      <div className="search">
+        <div>
+          <img src={ searchImg } alt="Buscar" />
+        </div>
+        <input
+          type="text"
+          placeholder="Buscar no Cloneddit"
+          value={ filterByTitle }
+          onChange={ ({ target }) => setFilterByTitle(target.value) }
+        />
+      </div>
       <div className="options">
         {(!user) ? (
           <button className="login" onClick={ signInWithGoogle }>

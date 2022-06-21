@@ -29,11 +29,25 @@ header .logo h1 {
   font-size: 24px;
 }
 
-header input {
+header .search {
   width: 40%;
+  position: relative;
+  overflow: hidden;
+}
+
+header .search div {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+}
+
+header .search input {
+  width: 100%;
   height: 28px;
   font-size: 18px;
-  padding: 0 4px;
+  padding: 0 4px 0 30px;
   border-radius: 2px;
   border: 1px solid var(--cinza1);
   background: var(--cinza2);
@@ -41,7 +55,7 @@ header input {
   color: #fff;
 }
 
-header input:focus, header input:hover {
+header .search input:focus, header .search input:hover {
   border-color: #219ebc;
 }
 
