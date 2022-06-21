@@ -28,6 +28,18 @@
   text-align: justify;
 }
 
+.posts-list .post .image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+.posts-list .post .image img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
 .posts-list .post .post-footer {
   margin-top: 12px;
   display: flex;

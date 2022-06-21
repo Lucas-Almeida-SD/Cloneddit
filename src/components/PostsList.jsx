@@ -33,6 +33,11 @@ export function PostsLists({ allPosts }) {
         <span className="posted-at">{`Postado às ${formatDate(post.postedAt)}`}</span>
         <h2 className="title">{post.title}</h2>
         <p className="content">{post.content}</p>
+        {(post.image) && (
+          <div className="image">
+            <img src={ post.image } alt="Imagem do post" />
+          </div> 
+        )}
         <footer className="post-footer">
           <User user={ post.author } />
           <InteractiveButtons
