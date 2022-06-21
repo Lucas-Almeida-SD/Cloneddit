@@ -53,7 +53,7 @@ export function Comments({ post, setShowComment, setCommentIndex, children }) {
               placeholder="Digite seu comentário!"
               onChange={ ({ target }) => setTextAreaValue(target.value) }
             />
-            <button type="submit" disabled={ !textareaValue }>Comentar</button>
+            <button type="submit" disabled={ !textareaValue.trim() }>Comentar</button>
           </form>
           <div className="comments-list">
             {post.comments.map((comment) => (
