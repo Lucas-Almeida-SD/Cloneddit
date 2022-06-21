@@ -65,8 +65,7 @@
 }
 
 .new-post-form .image-preview img {
-  max-width: 90%;
-  max-height: 720px;
+  max-width: 100%;
   border-radius: 2px;
   box-shadow: 0 0 4px #fff;
 }
@@ -91,10 +90,15 @@
   border-radius: 4px;
   cursor: not-allowed;
   color: #999;
+  margin-top: 18px;
 }
 
 .new-post-form footer button:enabled {
   background: #219ebc;
   cursor: pointer;
   color: #fff;
+}
+
+.new-post-form footer button:enabled:hover {
+  filter: brightness(0.8);
 }
