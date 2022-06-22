@@ -4,15 +4,24 @@ import { MyContext } from "../context/Provider";
 import { database } from "../services/firebase";
 import commentsImg from '../assets/images/comment.svg';
 import deleteImg from '../assets/images/delete.svg';
+import { signInWithGoogle } from "../services/signInWithGoogle";
 
 export function InteractiveButtons({ post, index, enableComments }) {
-  const { user } = useContext(MyContext);
+  const { user, setUser } = useContext(MyContext);
+
+  const openComments = () => {
+    if (!user) return signInWithGoogle(setUser);
+
+    enableComments(index);
+  }
 
   const findMyLike = (post) => {
     return post.likes.find((like) => like.authorId === user.id);
   };
 
   const likeThePost = async (post) => {
+    if (!user) return signInWithGoogle(setUser);
+
     if (findMyLike(post)) {
       await database.ref(`allPosts/${post.postId}/likes/${findMyLike(post).likeId}`)
         .remove();
@@ -32,10 +41,9 @@ export function InteractiveButtons({ post, index, enableComments }) {
     <div className="interactive-buttons">
       <button
         type="button"
-        onClick={ () => enableComments(index) }
+        onClick={ openComments }
         aria-label="Abrir aba de comentários"
         title="Comentários"
-        disabled={ !user }
       >
         <span>{post.comments.length}</span>
         <img src={ commentsImg } alt="Comentário"/>
@@ -46,7 +54,6 @@ export function InteractiveButtons({ post, index, enableComments }) {
         onClick={ () => likeThePost(post) }
         aria-label="Marcar como gostei"
         title="Like"
-        disabled={ !user }
       >
         <span>{post.likes.length}</span>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

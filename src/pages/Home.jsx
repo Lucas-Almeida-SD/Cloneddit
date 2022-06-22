@@ -35,7 +35,6 @@ export function Home() {
       <main id="home">
         {(!isFetching && allPosts) ? (
           <section className="content">
-            {!user && <h2>Faça login para interagir!</h2>}
             {(createNewPost) && <NewPost />}
             {(allPosts.length > 0) ? <PostsLists allPosts={allPosts}/> : (
               <EmptyPostList src={ addNotesImg } alt={ 'Lista vazia' } text={ text } />

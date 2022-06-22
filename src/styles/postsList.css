@@ -64,10 +64,6 @@
   padding: 2px;
 }
 
-.posts-list .post .interactive-buttons button:disabled {
-  cursor: not-allowed;
-}
-
 .posts-list .post .interactive-buttons button:enabled:hover {
   background: var(--cinza2);
   cursor: pointer;
