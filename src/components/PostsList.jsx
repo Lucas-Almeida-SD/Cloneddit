@@ -1,9 +1,12 @@
 import React, { useState, useContext } from "react";
+import { MyContext } from "../context/Provider";
+
 import { User } from "./User";
 import { Comments } from "./Comments";
-
 import { InteractiveButtons } from "./InteractiveButtons";
-import { MyContext } from "../context/Provider";
+import { EmptyPostList } from "./EmptyPostList";
+
+import notFoundImg from '../assets/images/not-found.svg';
 
 import '../styles/postsList.css';
 
@@ -50,22 +53,26 @@ export function PostsLists({ allPosts }) {
     );
   };
 
+  const text = 'Publicação não encontrada!'
+
   return (
     <section className="posts-list">
-      {filterPosts().map((post, index) => (
-        <div key={ post.postId } className="post">
-          {renderPost(post, index)}
-          {(showComment && commentIndex === index) && (
-            <Comments
-              post={post} 
-              setShowComment={ setShowComment }
-              setCommentIndex={ setCommentIndex }
-            >
-              {renderPost(post, index)}
-            </Comments>
-          )}
-        </div>
-      ))}
+      {filterPosts().length > 0 ? (
+        filterPosts().map((post, index) => (
+          <div key={ post.postId } className="post">
+            {renderPost(post, index)}
+            {(showComment && commentIndex === index) && (
+              <Comments
+                post={post} 
+                setShowComment={ setShowComment }
+                setCommentIndex={ setCommentIndex }
+              >
+                {renderPost(post, index)}
+              </Comments>
+            )}
+          </div>
+        ))
+      ) : <EmptyPostList src={ notFoundImg } alt="Não encontrado" text={ text } />}
     </section>
   );
 }

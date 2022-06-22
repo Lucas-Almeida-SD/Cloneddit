@@ -1,5 +1,7 @@
 import React from "react";
 
+import '../styles/emptyPostList.css';
+
 export function EmptyPostList({ src, alt, text }) {
   return (
     <section className="empty-post-list">
