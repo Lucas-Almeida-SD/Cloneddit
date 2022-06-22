@@ -1,8 +1,11 @@
 import React, { useContext, useEffect } from "react";
+import { EmptyPostList } from "../components/EmptyPostList";
 import { Header } from "../components/Header";
 import { NewPost } from "../components/NewPost";
 import { PostsLists } from "../components/PostsList";
 import { MyContext } from "../context/Provider";
+
+import addNotesImg from '../assets/images/add-notes.svg';
 
 import '../styles/home.css';
 
@@ -24,15 +27,19 @@ export function Home() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
+  const text = 'Não há publicações no momento!';
+
   return (
     <>
       <Header />
       <main id="home">
         {(!isFetching && allPosts) ? (
           <section className="content">
-            {!user && <p>Faça login</p>}
+            {!user && <h2>Faça login para interagir!</h2>}
             {(createNewPost) && <NewPost />}
-            <PostsLists allPosts={allPosts}/>
+            {(allPosts.length > 0) ? <PostsLists allPosts={allPosts}/> : (
+              <EmptyPostList src={ addNotesImg } alt={ 'Lista vazia' } text={ text } />
+            )}
           </section>
         ) : <h1>Loading...</h1>}
       </main>
