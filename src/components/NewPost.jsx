@@ -40,6 +40,7 @@ export function NewPost() {
 
     setInputValue('');
     setTextareaValue('');
+    setFileValue('');
 
     await database.ref(`allPosts`).push({
       author: user,
