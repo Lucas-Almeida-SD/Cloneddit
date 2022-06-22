@@ -8,6 +8,7 @@ import { MyContext } from "../context/Provider";
 import addNotesImg from '../assets/images/add-notes.svg';
 
 import '../styles/home.css';
+import { Loading } from "../components/Loading";
 
 export function Home() {
   const {
@@ -39,7 +40,7 @@ export function Home() {
               <EmptyPostList src={ addNotesImg } alt={ 'Lista vazia' } text={ text } />
             )}
           </section>
-        ) : <h1>Loading...</h1>}
+        ) : <Loading />}
       </main>
     </>
   );
