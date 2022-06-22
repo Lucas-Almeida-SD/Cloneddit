@@ -6,7 +6,8 @@ import commentsImg from '../assets/images/comment.svg';
 import deleteImg from '../assets/images/delete.svg';
 import { signInWithGoogle } from "../services/signInWithGoogle";
 
-export function InteractiveButtons({ post, index, enableComments }) {
+export function InteractiveButtons(props) {
+  const { post, index, enableComments, setShowComment, setCommentIndex } = props;
   const { user, setUser } = useContext(MyContext);
 
   const openComments = () => {
@@ -34,6 +35,9 @@ export function InteractiveButtons({ post, index, enableComments }) {
   const deletePost = async () => {
     if (window.confirm('Deseja remover essa postagem?')) {
       await database.ref(`allPosts/${post.postId}`).remove();
+
+      setShowComment(false);
+      setCommentIndex(-1)
     }
   };
 

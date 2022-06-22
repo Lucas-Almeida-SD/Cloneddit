@@ -47,6 +47,8 @@ export function PostsLists({ allPosts }) {
             post={ post }
             index={ index }
             enableComments={ enableComments }
+            setShowComment={ setShowComment }
+            setCommentIndex={ setCommentIndex }
           />
         </footer>
       </>
