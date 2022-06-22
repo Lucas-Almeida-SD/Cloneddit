@@ -37,7 +37,7 @@
   border: 1px solid #727272;
   border-radius: 4px;
   background: rgb(26, 27, 28);
-  padding: 12px;
+  padding: 32px 12px;
   overflow-y: auto;
 }
 
@@ -143,4 +143,15 @@
 
 .comments-list .comment footer button:hover {
   background: var(--cinza2);
+}
+
+.comments-section .no-comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.comments-section .no-comments img {
+  width: 40%;
 }

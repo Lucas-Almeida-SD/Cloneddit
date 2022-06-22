@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { MyContext } from "../context/Provider";
 
 import deleteImg from '../assets/images/delete.svg';
+import noCommentsImg from '../assets/images/no-data.svg';
 
 import '../styles/comments.css';
 
@@ -74,6 +75,12 @@ export function Comments({ post, setShowComment, setCommentIndex, children }) {
               </div>
             ))}
           </div>
+          {!post.comments.length && (
+            <div className="no-comments">
+              <h2>Sem comentários no momento!</h2>
+              <img src={ noCommentsImg } alt="Sem comentários" />
+            </div>
+          )}
         </section>
       </div>
     </div>
