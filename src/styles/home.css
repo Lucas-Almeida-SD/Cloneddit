@@ -1,6 +1,7 @@
 #home {
   padding: 30px;
   display: flex;
+  justify-content: center;
   flex-grow: 1;
 }
 
@@ -9,4 +10,5 @@
   flex-direction: column;
   width: 100%;
   gap: 38px;
+  max-width: 800px;
 }

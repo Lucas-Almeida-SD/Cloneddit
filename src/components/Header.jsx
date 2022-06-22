@@ -44,34 +44,36 @@ export function Header(props) {
 
   return (
     <header>
-      <div className="logo">
-        <img src={ robotImg } alt="Robô" />
-        <h1>cloneddit</h1>
-      </div>
-      <div className="search">
-        <div>
-          <img src={ searchImg } alt="Buscar" />
+      <div className="content">
+        <div className="logo">
+          <img src={ robotImg } alt="Robô" />
+          <h1>cloneddit</h1>
         </div>
-        <input
-          type="text"
-          placeholder="Buscar no Cloneddit"
-          value={ filterByTitle }
-          onChange={ ({ target }) => setFilterByTitle(target.value) }
-        />
-      </div>
-      <div className="options">
-        {(!user) ? (
-          <button className="login" onClick={ () => signInWithGoogle(setUser) }>
-            <img src={ googleImg } alt="Logo Google" />
-            Login
-          </button>
-        ) : (
-          <>
-            {renderPageLink()}
-            {renderNewPostBtn()}
-            <User user={user} />
-          </>
-        )}
+        <div className="search">
+          <div>
+            <img src={ searchImg } alt="Buscar" />
+          </div>
+          <input
+            type="text"
+            placeholder="Buscar no Cloneddit"
+            value={ filterByTitle }
+            onChange={ ({ target }) => setFilterByTitle(target.value) }
+          />
+        </div>
+        <div className="options">
+          {(!user) ? (
+            <button className="login" onClick={ () => signInWithGoogle(setUser) }>
+              <img src={ googleImg } alt="Logo Google" />
+              Login
+            </button>
+          ) : (
+            <>
+              {renderPageLink()}
+              {renderNewPostBtn()}
+              <User user={user} />
+            </>
+          )}
+        </div>
       </div>
     </header>
   );

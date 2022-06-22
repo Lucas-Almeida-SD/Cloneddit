@@ -5,11 +5,18 @@
 
 header {
   display: flex;
+  justify-content: center;
+  border-bottom: 1px solid var(--cinza2);
+}
+
+header .content {
+  width: 100%;
+  padding: 12px 30px;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px;
   gap: 12px;
-  border-bottom: 1px solid var(--cinza2);
+  max-width: 1200px;
 }
 
 header .logo {
@@ -19,7 +26,7 @@ header .logo {
 }
 
 header .logo img {
-  width: 50px;
+  width: 40px;
   background: #219ebc;
   border-radius: 50%;
   padding: 4px;

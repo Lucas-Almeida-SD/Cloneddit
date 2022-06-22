@@ -17,6 +17,7 @@
   margin-bottom: 8px;
   width: 100%;
   width: 80%;
+  max-width: 800px;
 }
 
 .comments-background .return button {
@@ -31,6 +32,7 @@
 
 .comments-content {
   width: 80%;
+  max-width: 800px;
   height: 85vh;
   border: 1px solid #727272;
   border-radius: 4px;
