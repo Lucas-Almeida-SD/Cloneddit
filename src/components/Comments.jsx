@@ -22,11 +22,14 @@ export function Comments({ post, setShowComment, setCommentIndex, children }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const values = { textareaValue };
+
+    setTextAreaValue('');
+    
     await database.ref(`allPosts/${post.postId}/comments`).push({
       author: user,
-      content: textareaValue,
+      content: values.textareaValue,
     });
-    setTextAreaValue('');
   }
 
   const deleteComment = async (comment) => {

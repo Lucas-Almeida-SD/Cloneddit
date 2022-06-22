@@ -36,17 +36,18 @@ export function NewPost() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await database.ref(`allPosts`).push({
-      author: user,
-      title: inputValue,
-      content:textareaValue,
-      image: fileValue,
-      postedAt: new Date().toLocaleString('pt-BR', { timeZone: "America/Sao_Paulo" }),
-    });
+    const values = { inputValue, textareaValue }
 
     setInputValue('');
     setTextareaValue('');
-    setCreateNewPost('');
+
+    await database.ref(`allPosts`).push({
+      author: user,
+      title: values.inputValue,
+      content:values.textareaValue,
+      image: fileValue,
+      postedAt: new Date().toLocaleString('pt-BR', { timeZone: "America/Sao_Paulo" }),
+    });
   }
 
   return (
