@@ -11,7 +11,6 @@ import '../styles/home.css';
 
 export function Home() {
   const {
-    user, 
     allPosts,
     isFetching,
     setFilterByTitle,
