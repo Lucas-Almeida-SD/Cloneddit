@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   gap: 24px;
+  flex-grow: 1;
 }
 
 .empty-post-list img {

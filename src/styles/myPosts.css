@@ -1,5 +1,7 @@
 #my-posts {
   padding: 30px;
+  display: flex;
+  flex-grow: 1;
 }
 
 #my-posts .content{
