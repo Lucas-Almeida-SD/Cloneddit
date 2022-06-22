@@ -16,6 +16,7 @@
   border: 1px solid #727272;
   padding: 8px;
   border-radius: 4px;
+  animation: surgir 1s;
 }
 
 .posts-list .post .posted-at {
@@ -73,4 +74,15 @@
 
 .posts-list .post .interactive-buttons .liked path {
   stroke: #219ebc;
+}
+
+@keyframes surgir {
+  0% {
+    transform: translateY(300px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
