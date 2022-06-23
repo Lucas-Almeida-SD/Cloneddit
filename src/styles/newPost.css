@@ -50,11 +50,12 @@
 .new-post-form input {
   font-family: 'Fredoka One', cursive;
   font-weight: 100;
+  letter-spacing: 1px;
 }
 
 .new-post-form .textarea-div textarea {
   resize: vertical;
-  min-height: 200px;
+  min-height: 100px;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -123,4 +124,24 @@
 
 .new-post-form footer button:enabled:hover {
   filter: brightness(0.8);
+}
+
+@media screen and (max-width: 860px) {
+  .new-post-form {
+    width: 80%;
+  }
+
+  .new-post-form input {
+    font-size: 16px;
+  }
+  
+  .new-post-form .textarea-div textarea {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .new-post-form {
+    width: 90%;
+  }
 }

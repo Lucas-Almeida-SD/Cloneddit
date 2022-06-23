@@ -12,3 +12,11 @@
   gap: 38px;
   max-width: 800px;
 }
+
+@media screen and (max-width: 540px) {
+  #home {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 72px;
+  }
+}

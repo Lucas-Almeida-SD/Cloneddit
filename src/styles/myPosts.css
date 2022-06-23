@@ -13,3 +13,9 @@
   gap: 38px;
   max-width: 800px;
 }
+
+@media screen and (max-width: 540px) {
+  #my-posts {
+    padding-top: 72px;
+  }
+}

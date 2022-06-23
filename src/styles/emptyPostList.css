@@ -8,15 +8,17 @@
   animation: aparecer 1s;
 }
 
+.empty-post-list img {
+  width: 300px;
+}
+
 .empty-post-list h2 {
   font-family: 'Orelega One', cursive;
   font-size: 28px;
   font-weight: 100;
+  text-align: center;
 }
 
-.empty-post-list img {
-  width: 300px;
-}
 
 @keyframes aparecer {
   0% {
@@ -24,5 +26,15 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .empty-post-list img {
+    width: 250px;
+  }
+  
+  .empty-post-list h2 {
+    font-size: 24px;
   }
 }

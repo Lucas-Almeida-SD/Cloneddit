@@ -24,8 +24,30 @@
   font-size: 16px
 }
 
+#user span{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
 #user img {
   width: 36px;
   height: 36px;
   border-radius: 50%;
+}
+
+@media screen and (max-width: 540px) {
+  #user {
+    padding: 4px;
+  }
+
+  #user span {
+    max-width: 90px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  #user span {
+    max-width: 90%;
+  }
 }

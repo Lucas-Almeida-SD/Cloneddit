@@ -15,7 +15,6 @@
 .comments-background .return {
   text-align: end;
   margin-bottom: 8px;
-  width: 100%;
   width: 80%;
   max-width: 800px;
 }
@@ -76,7 +75,7 @@
 .comments-section form textarea {
   width: 100%;
   resize: vertical;
-  min-height: 150px;
+  min-height: 100px;
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
   border-radius: 2px;
@@ -160,4 +159,33 @@
 
 .comments-section .no-comments img {
   width: 40%;
+}
+
+@media screen and (max-width: 860px) {
+  .comments-section form textarea {
+    font-size: 14px;
+  }
+
+  .comments-list .comment p {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .comments-background .return {
+    width: 95%;
+  }
+
+  .comments-content {
+    width: 95%;
+  }
+
+  .comments-section form button {
+    padding: 8px 24px;
+    font-size: 14px;
+  }
+
+  .comments-section .no-comments h2 {
+    font-size: 20px;
+  }
 }
