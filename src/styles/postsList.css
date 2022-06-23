@@ -14,7 +14,7 @@
 .posts-list .post {
   width: 80%;
   border: 1px solid #727272;
-  padding: 8px;
+  padding: 12px;
   border-radius: 4px;
   animation: surgir 1s;
 }
@@ -23,11 +23,23 @@
   display: block;
   text-align: end;
   font-size: 14px;
+  font-family: 'Bree Serif', serif;
 }
 
 .posts-list .post .title, .posts-list .post .content {
   margin-top: 4px;
   text-align: justify;
+}
+
+.posts-list .post .title {
+  font-family: 'Fredoka One', cursive;
+  font-weight: 100;
+  font-size: 28px;
+}
+
+.posts-list .post .content {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
 }
 
 .posts-list .post .image {

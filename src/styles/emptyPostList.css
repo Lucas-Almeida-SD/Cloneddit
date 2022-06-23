@@ -5,8 +5,24 @@
   justify-content: center;
   gap: 24px;
   flex-grow: 1;
+  animation: aparecer 1s;
+}
+
+.empty-post-list h2 {
+  font-family: 'Orelega One', cursive;
+  font-size: 28px;
+  font-weight: 100;
 }
 
 .empty-post-list img {
   width: 300px;
+}
+
+@keyframes aparecer {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

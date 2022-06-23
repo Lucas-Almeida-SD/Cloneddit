@@ -47,9 +47,15 @@
   width: 100%;
 }
 
+.new-post-form input {
+  font-family: 'Fredoka One', cursive;
+  font-weight: 100;
+}
+
 .new-post-form .textarea-div textarea {
   resize: vertical;
   min-height: 200px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .new-post-form .textarea-div img {
@@ -105,6 +111,8 @@
   cursor: not-allowed;
   color: #999;
   margin-top: 18px;
+  font-family: 'Acme', sans-serif;
+  font-size: 16px;
 }
 
 .new-post-form footer button:enabled {

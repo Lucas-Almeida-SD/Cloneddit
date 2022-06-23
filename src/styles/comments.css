@@ -50,6 +50,7 @@
 
 .comments-section .post {
   width: 95% !important;
+  background: #000;
 }
 
 .comments-section .post button:nth-child(1) {
@@ -69,13 +70,14 @@
   width: 95%;
   border: 1px solid #727272;
   border-radius: 4px;
-  padding: 8px;
+  padding: 12px;
 }
 
 .comments-section form textarea {
   width: 100%;
   resize: vertical;
   min-height: 150px;
+  font-family: 'Poppins', sans-serif;
   font-size: 18px;
   border-radius: 2px;
   border: 1px solid var(--cinza1);
@@ -96,6 +98,8 @@
   color: #fff;
   cursor: not-allowed;
   color: #999;
+  font-family: 'Acme', sans-serif;
+  font-size: 16px;
 }
 
 .comments-section form button:enabled {
@@ -119,11 +123,13 @@
 .comments-list .comment {
   border: 1px solid #727272;
   border-radius: 4px;
-  padding: 8px;
+  padding: 12px;
 }
 
 .comments-list .comment p {
   word-wrap: break-word;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
 }
 
 .comments-list .comment footer {

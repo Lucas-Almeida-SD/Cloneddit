@@ -20,6 +20,8 @@
   padding: 4px 8px;
   border-radius: 9999px;
   background: var(--cinza2);
+  font-family: 'Acme', sans-serif;
+  font-size: 16px
 }
 
 #user img {

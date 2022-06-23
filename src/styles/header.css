@@ -23,6 +23,7 @@ header .logo {
   gap: 8px;
   display: flex;
   align-items: center;
+  font-family: 'ABeeZee', sans-serif;
 }
 
 header .logo img {
@@ -60,6 +61,7 @@ header .search input {
   background: var(--cinza2);
   outline: none;
   color: #fff;
+  font-family: 'Bree Serif', serif;
 }
 
 header .search input:focus, header .search input:hover {
@@ -81,6 +83,8 @@ header .options .login {
   background: #219ebc;
   color: #fff;
   position: relative;
+  font-family: 'Acme', sans-serif;
+  font-size: 16px;
 }
 
 header .options .login:hover {
@@ -98,6 +102,8 @@ header .options .login img{
 header .options a {
   color: #219ebc;
   text-decoration: none;
+  font-family: 'Acme', sans-serif;
+  font-size: 16px
 }
 
 header .options a:hover {
