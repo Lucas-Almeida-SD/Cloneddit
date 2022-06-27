@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Cloneddit/static/css/main.2b00841b.css",
-    "main.js": "/Cloneddit/static/js/main.bcff876d.js",
+    "main.js": "/Cloneddit/static/js/main.d1625c54.js",
     "static/js/787.a1cb8a39.chunk.js": "/Cloneddit/static/js/787.a1cb8a39.chunk.js",
     "static/media/loading.gif": "/Cloneddit/static/media/loading.9133dbf9ba067f1918af.gif",
     "static/media/blank-canvas.svg": "/Cloneddit/static/media/blank-canvas.9ea1a89dd34e9d8f863bbe441f70d062.svg",
@@ -16,11 +16,11 @@
     "static/media/search.svg": "/Cloneddit/static/media/search.87f65009c68d7f11a86aa65c86a1f0fc.svg",
     "static/media/comment.svg": "/Cloneddit/static/media/comment.4502a8d5a18c09b88dbbc129df3c97a6.svg",
     "main.2b00841b.css.map": "/Cloneddit/static/css/main.2b00841b.css.map",
-    "main.bcff876d.js.map": "/Cloneddit/static/js/main.bcff876d.js.map",
+    "main.d1625c54.js.map": "/Cloneddit/static/js/main.d1625c54.js.map",
     "787.a1cb8a39.chunk.js.map": "/Cloneddit/static/js/787.a1cb8a39.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2b00841b.css",
-    "static/js/main.bcff876d.js"
+    "static/js/main.d1625c54.js"
   ]
 }
