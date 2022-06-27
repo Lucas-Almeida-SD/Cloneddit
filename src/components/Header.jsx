@@ -24,9 +24,9 @@ export function Header(props) {
 
   const renderPageLink = () => {
     return (
-      (pathname === '/') ? (
-        <Link to='/my-posts'>My Posts</Link>
-      ) : <Link to='/'>Home</Link>
+      (pathname === '/Cloneddit/') ? (
+        <Link to='/Cloneddit/my-posts'>My Posts</Link>
+      ) : <Link to='/Cloneddit/'>Home</Link>
     );
   }
 
