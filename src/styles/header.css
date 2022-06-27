@@ -103,7 +103,8 @@ header .options a {
   color: #219ebc;
   text-decoration: none;
   font-family: 'Acme', sans-serif;
-  font-size: 16px
+  font-size: 16px;
+  white-space: nowrap;
 }
 
 header .options a:hover {
