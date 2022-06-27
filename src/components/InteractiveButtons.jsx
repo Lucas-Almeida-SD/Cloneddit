@@ -5,13 +5,14 @@ import { database } from "../services/firebase";
 import commentsImg from '../assets/images/comment.svg';
 import deleteImg from '../assets/images/delete.svg';
 import { signInWithGoogle } from "../services/signInWithGoogle";
+import toast, { Toaster } from 'react-hot-toast';
 
 export function InteractiveButtons(props) {
   const { post, index, enableComments, setShowComment, setCommentIndex } = props;
   const { user, setUser } = useContext(MyContext);
 
   const openComments = () => {
-    if (!user) return signInWithGoogle(setUser);
+    if (!user) return signInWithGoogle(setUser, toast);
 
     enableComments(index);
   }
@@ -21,7 +22,7 @@ export function InteractiveButtons(props) {
   };
 
   const likeThePost = async (post) => {
-    if (!user) return signInWithGoogle(setUser);
+    if (!user) return signInWithGoogle(setUser, toast);
 
     if (findMyLike(post)) {
       await database.ref(`allPosts/${post.postId}/likes/${findMyLike(post).likeId}`)
@@ -73,6 +74,7 @@ export function InteractiveButtons(props) {
           <img src={ deleteImg } alt="Remover" title="Remover"/>
         </button>
       )}
+      <Toaster />
     </div>
   );
 }

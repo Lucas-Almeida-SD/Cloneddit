@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { MyContext } from "../context/Provider";
 import { User } from "./User";
 import { Link, useHistory } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 
 import robotImg from '../assets/images/robot.png';
 import searchImg from '../assets/images/search.svg';
@@ -62,7 +63,7 @@ export function Header(props) {
         </div>
         <div className="options">
           {(!user) ? (
-            <button className="login" onClick={ () => signInWithGoogle(setUser) }>
+            <button className="login" onClick={ () => signInWithGoogle(setUser, toast) }>
               <img src={ googleImg } alt="Logo Google" />
               Login
             </button>
@@ -75,6 +76,7 @@ export function Header(props) {
           )}
         </div>
       </div>
+      <Toaster />
     </header>
   );
 }
